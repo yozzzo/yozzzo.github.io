@@ -66,10 +66,11 @@
         }
     </style>
     <script src="https://kit.fontawesome.com/36cbf3c9d6.js" crossorigin="anonymous"></script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var count = 0;
-            var maxCount = 15; // メッセージの総数
+            var maxCount = 15;
             var messages = [
                 "そんな！",
                 "もう一回考えてみてください！",
@@ -89,17 +90,17 @@
             ];
 
             var notLineLinkElement = document.querySelector('.not-line-link');
+            var lineLinkElement = document.querySelector('.line-link'); // 新しいLINEボタンを取得
+
             notLineLinkElement.addEventListener('click', function (e) {
-                e.preventDefault(); // ページ遷移を防止
+                e.preventDefault();
                 if (count < maxCount) {
                     alert(messages[count]);
                     count++;
                 }
                 if (count === maxCount) {
-                    notLineLinkElement.textContent = 'LINEしてみる!!';
-                    notLineLinkElement.classList.remove('not-line-link');
-                    notLineLinkElement.classList.add('line-link');
-                    notLineLinkElement.setAttribute('href', 'https://x.gd/74FE6');
+                    notLineLinkElement.style.display = 'none'; // 「やめとく」ボタンを非表示にする
+                    lineLinkElement.style.display = 'inline-block'; // 新しい「LINEしてみる!!」ボタンを表示
                 }
             });
         });
