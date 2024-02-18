@@ -59,7 +59,6 @@
             background-color: #cccccc;
             color: white;
             cursor: pointer;
-            /* カーソルをポインタに設定 */
         }
 
         .fa-line {
@@ -70,18 +69,38 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             var count = 0;
+            var maxCount = 15; // メッセージの総数
             var messages = [
                 "そんな！",
                 "もう一回考えてみてください！",
                 "だめですか、、？",
                 "どうしてもだめですか...?",
-                "詐欺とかじゃないです！"
+                "詐欺とかじゃないです！",
+                "あ、操作ミスとか？",
+                "確かにそういうこともありますよね！(あるある)",
+                "指摘されてからもってことは操作ミスの線は薄いか、、",
+                "でも結構真剣なんです！",
+                "もう一回考えてみてください！",
+                "ちなみに今10回「やめとく」押してます!",
+                "これどこまで違うの出てくるんだろう、、って探究心が芽生えてる時点で結構相性いいです！",
+                "これは性格も合いそうですね〜(よかったよかった)",
+                "というわけでそろそろLINEしませんか？",
+                "びっくりムーミンアイコンと仲良くしてください！(土下座)",
             ];
 
-            document.querySelector('.not-line-link').addEventListener('click', function (e) {
+            var notLineLinkElement = document.querySelector('.not-line-link');
+            notLineLinkElement.addEventListener('click', function (e) {
                 e.preventDefault(); // ページ遷移を防止
-                alert(messages[count]);
-                count = (count + 1) % messages.length; // カウントを更新し、5でリセット
+                if (count < maxCount) {
+                    alert(messages[count]);
+                    count++;
+                }
+                if (count === maxCount) {
+                    notLineLinkElement.textContent = 'LINEしてみる!!';
+                    notLineLinkElement.classList.remove('not-line-link');
+                    notLineLinkElement.classList.add('line-link');
+                    notLineLinkElement.setAttribute('href', 'https://x.gd/74FE6');
+                }
             });
         });
     </script>
@@ -103,7 +122,7 @@
                     <i class="fa-brands fa-line"></i>LINEしてみる!!
                 </a>
                 <!-- `href`属性をJavaScript関数の呼び出しに変更 -->
-                <span class="not-line-link">やめとく</span>
+                <a class="not-line-link" href="#">やめとく</a>
             </div>
         </div>
     </div>
