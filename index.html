@@ -1,24 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 
 <head>
-    <title>YOZO TOMODA</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ユニクロのお姉さんへ</title>
     <style>
-.centering_parent {
-    margin: auto auto;              /* 余白指定 */
-    text-align:  center;        /* 中央寄せ */
-    height: 100px;              /* 高さ指定 */
-}
-.f-size {font-size: 300px;}
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+
+        .message {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 0 20px;
+        }
+
+        .line-link {
+            display: inline-block;
+            background-color: #00c300;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .not-line-link {
+            display: inline-block;
+            /* // disableのようなbackground-color */
+            background-color: #cccccc;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .fa-line {
+            margin-right: 10px;
+        }
     </style>
     <script src="https://kit.fontawesome.com/36cbf3c9d6.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="centering_parent">
-    <a href="https://x.gd/74FE6">
-    <i class="fa-brands fa-line f-size"></i>
-    </a>
+    <div class="message">
+        ユニクロのお姉さんへ。
+        <br>
+        <br>
+        とってもかわいいな〜と思って頭から離れなかったので
+        <br>
+        <br>
+        よければ友達になってください！
+    </div>
+    <div>
+        <span>
+            <a class="line-link" href="https://x.gd/74FE6">
+                <i class="fa-brands fa-line"></i>LINEしてみる!!
+            </a>
+        </span>
+        <!-- // 横に並べる -->
+        <span>
+            <a class="not-line-link" href="https://x.gd/74FE6">
+                LINEしてみる
+            </a>
+        </span>
     </div>
 </body>
 
