@@ -1,132 +1,49 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ユニクロのお姉さんへ</title>
+    <title>自己紹介</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
             margin: 0;
             padding: 0;
-            background-color: #f5f5f5;
-        }
-
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
             display: flex;
             justify-content: center;
             align-items: center;
+            height: 100vh;
         }
-
-        .modal-content {
-            background-color: #fff;
+        .profile {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
             padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 90%;
-            max-width: 500px;
+            width: 300px;
             text-align: center;
         }
-
-        .message {
-            margin-bottom: 20px;
-            line-height: 1.6;
+        .profile img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
         }
-
-        .line-link,
-        .not-line-link {
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 20px;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 5px;
+        .profile h1 {
+            color: #333;
+            font-size: 24px;
         }
-
-        .line-link {
-            background-color: #00c300;
-            color: white;
-        }
-
-        .not-line-link {
-            background-color: #cccccc;
-            color: white;
-            cursor: pointer;
-        }
-
-        .fa-line {
-            margin-right: 10px;
+        .profile p {
+            color: #666;
+            font-size: 16px;
         }
     </style>
-    <script src="https://kit.fontawesome.com/36cbf3c9d6.js" crossorigin="anonymous"></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var count = 0;
-            var maxCount = 15;
-            var messages = [
-                "そんな！",
-                "もう一回考えてみてください！",
-                "だめですか、、？",
-                "どうしてもだめですか...?",
-                "詐欺とかじゃないです！",
-                "あ、操作ミスとか？",
-                "確かにそういうこともありますよね！(あるある)",
-                "指摘されてからもってことは操作ミスの線は薄いか、、",
-                "でも結構真剣なんです！",
-                "もう一回考えてみてください！",
-                "ちなみに今10回「やめとく」押してます!",
-                "これどこまで違うの出てくるんだろう、、って探究心が芽生えてる時点で結構相性いいです！",
-                "これは性格も合いそうですね〜(よかったよかった)",
-                "というわけでそろそろLINEしませんか？",
-                "びっくりムーミンアイコンと仲良くしてください！(土下座)",
-            ];
-
-            var notLineLinkElement = document.querySelector('.not-line-link');
-            var lineLinkElement = document.querySelector('.line-link'); // 新しいLINEボタンを取得
-
-            notLineLinkElement.addEventListener('click', function (e) {
-                e.preventDefault();
-                if (count < maxCount) {
-                    alert(messages[count]);
-                    count++;
-                }
-                if (count === maxCount) {
-                    notLineLinkElement.style.display = 'none'; // 「やめとく」ボタンを非表示にする
-                    lineLinkElement.style.display = 'inline-block'; // 新しい「LINEしてみる!!」ボタンを表示
-                }
-            });
-        });
-    </script>
 </head>
-
 <body>
-    <div class="modal-overlay">
-        <div class="modal-content">
-            <div class="message">
-                ユニクロのお姉さんへ
-                <br><br>
-                とってもかわいいな〜<br>
-                と思って気になってたので<br>
-                よければ友達になってください!!
-                <br>
-            </div>
-            <div>
-                <a class="line-link" href="https://x.gd/74FE6">
-                    <i class="fa-brands fa-line"></i>LINEしてみる!!
-                </a>
-                <!-- `href`属性をJavaScript関数の呼び出しに変更 -->
-                <a class="not-line-link" href="#">やめとく</a>
-            </div>
-        </div>
+    <div class="profile">
+        <img src="profile.jpg" alt="プロフィール画像">
+        <h1>名前</h1>
+        <p>職業：Yozo Tomoda</p>
+        <p>趣味：テニス</p>
+        <p>一言：よろしくお願いします！</p>
     </div>
 </body>
-
 </html>
