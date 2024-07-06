@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>自己紹介ページ</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -50,6 +51,12 @@
             margin-bottom: 20px;
             font-weight: 300;
         }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 20px;
+        }
         .social-links a {
             margin: 0 15px;
             text-decoration: none;
@@ -70,12 +77,48 @@
             border: none;
             border-radius: 10px;
         }
+        .icon {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 3em;
+            color: #1f1c2c;
+            margin-bottom: 20px;
+        }
+        @media (max-width: 600px) {
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .social-links a {
+                font-size: 1.2em;
+                margin: 0 10px;
+            }
+            .profile-image {
+                width: 100px;
+                height: 100px;
+            }
+            iframe {
+                height: 200px;
+            }
+        }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <img src="your-profile-picture-url.jpg" alt="Profile Picture" class="profile-image">
+    <div class="profile-image icon">
+        <i class="fas fa-user"></i>
+    </div>
     <h1>友田 陽三</h1>
     <p>友田です！大切な想い出や日常を360度見渡せる3D/4Dで残せるSNS 「TAVIO」を開発中です！いろいろ3D化するのも実験中...興味ある方はお声がけください！</p>
     <div class="social-links">
