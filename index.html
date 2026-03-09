@@ -133,9 +133,19 @@
     }
 
     /* 3D Gallery */
+    .gallery-category {
+      margin-bottom: 40px;
+    }
+    .gallery-category:last-child { margin-bottom: 0; }
+    .gallery-category h3 {
+      font-size: 1em;
+      font-weight: 500;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
     .gallery-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 16px;
     }
     .gallery-item {
@@ -232,7 +242,7 @@
     @media (max-width: 640px) {
       .hero { padding: 60px 0 40px; }
       .hero h1 { font-size: 2em; }
-      .gallery-grid { grid-template-columns: 1fr; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
       .drone-grid { grid-template-columns: 1fr; }
       .project { flex-direction: column; gap: 8px; }
     }
@@ -299,22 +309,60 @@
     <!-- 3D Gallery -->
     <section>
       <h2>3D Gallery</h2>
-      <div class="gallery-grid">
-        <div class="gallery-item" data-src="https://lumalabs.ai/embed/e0787f28-be64-4060-99f5-ede64da950b1?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
-          <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/7922f8a10328a0167c4f6de898f7274653fa97a2d8e74e7a8bbb92a0977436b1/4_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
-          <div class="label">Island</div>
+      <!-- 食べ物 -->
+      <div class="gallery-category">
+        <h3>Food</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-src="https://lumalabs.ai/embed/732f644a-1141-4145-ac61-08680316d126?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+            <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/550dc98cd4e61f1a4f455ee72b3c8b477138448bf77379d7ed6daa2e85ac966d/_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
+            <div class="label">焼肉 五反田</div>
+          </div>
+          <div class="gallery-item" data-src="https://lumalabs.ai/embed/3fcc98e8-b819-4a2c-89e2-b4b4ea6096da?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+            <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/96bb6d842d2d5e5eec134a4216b1e5dae2716901e0a1354f4d1f2de4ea8852a7/_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
+            <div class="label">ラーメン</div>
+          </div>
+          <div class="gallery-item" data-src="https://lumalabs.ai/embed/712990a3-2285-4238-92e6-08628d587767?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+            <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/ab09659f4a5c2ecc1d410e153a44c3516fb986bda29c6fc5790ceb2edb0b92fc/_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
+            <div class="label">究極の親子丼</div>
+          </div>
         </div>
-        <div class="gallery-item" data-src="https://lumalabs.ai/embed/732f644a-1141-4145-ac61-08680316d126?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
-          <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/550dc98cd4e61f1a4f455ee72b3c8b477138448bf77379d7ed6daa2e85ac966d/_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
-          <div class="label">Yakiniku Gotanda</div>
+      </div>
+
+      <!-- 空撮 -->
+      <div class="gallery-category">
+        <h3>Aerial</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-src="https://lumalabs.ai/embed/e0787f28-be64-4060-99f5-ede64da950b1?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+            <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/7922f8a10328a0167c4f6de898f7274653fa97a2d8e74e7a8bbb92a0977436b1/4_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
+            <div class="label">島</div>
+          </div>
+          <div class="gallery-item" data-src="https://lumalabs.ai/embed/81ea4de2-938b-47ca-9b3b-64a476745ae5?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+            <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/bd661e34ca5c2a394ea6a5364af3d1b1544dfaac7bac74744dd9414e2e4581c1/torinokuchi1_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
+            <div class="label">鳥ノ口</div>
+          </div>
+          <div class="gallery-item" data-src="https://lumalabs.ai/embed/ff2146f5-ef51-4a8d-bc06-3f56157624e4?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+            <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/cb38de2e53c39fc8cf86ce51d0d3c005b032754d07038b546c0d8ee8613ca5e5/_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
+            <div class="label">南伊豆の滝</div>
+          </div>
         </div>
-        <div class="gallery-item" data-src="https://lumalabs.ai/embed/3fcc98e8-b819-4a2c-89e2-b4b4ea6096da?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
-          <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/96bb6d842d2d5e5eec134a4216b1e5dae2716901e0a1354f4d1f2de4ea8852a7/_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
-          <div class="label">Ramen</div>
-        </div>
-        <div class="gallery-item" data-src="https://lumalabs.ai/embed/81ea4de2-938b-47ca-9b3b-64a476745ae5?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
-          <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/bd661e34ca5c2a394ea6a5364af3d1b1544dfaac7bac74744dd9414e2e4581c1/torinokuchi1_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
-          <div class="label">Torinokuchi</div>
+      </div>
+
+      <!-- 観光 -->
+      <div class="gallery-category">
+        <h3>Sightseeing</h3>
+        <div class="gallery-grid">
+          <div class="gallery-item" data-src="https://lumalabs.ai/embed/04232828-5f42-4270-baf4-19016ecb52b5?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+            <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/d22a3f2e93a231cd5c453bde1799f7b29a34c7d4810a10241cb28dc8bddd7cb3/Mobica1_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
+            <div class="label">Mobica</div>
+          </div>
+          <div class="gallery-item" data-src="https://lumalabs.ai/embed/e0a44766-72a7-4ec2-b297-90bc7febce70?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+            <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/1dd5e0e45d35daba080710cb3936d785a4ec9f516bea78b6ca1bd42c7c984e19/1_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
+            <div class="label">ねこ</div>
+          </div>
+          <div class="gallery-item" data-src="https://lumalabs.ai/embed/c0a2f1ac-8680-4dab-8219-41820f33e9da?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+            <div class="gallery-placeholder" style="background-image:url('https://cdn-luma.com/c9c5a971f306209304c9682af9a77d41fb4ad2a87e586e6acaa9cfe3bbd391ad/_with_background_preview.jpg')"><div class="play-hint"><i class="fas fa-cube"></i>Hover to explore</div></div>
+            <div class="label">公園の雪</div>
+          </div>
         </div>
       </div>
     </section>
