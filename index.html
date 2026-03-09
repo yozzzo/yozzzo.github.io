@@ -160,7 +160,30 @@
       font-size: 0.8em;
       color: rgba(255,255,255,0.8);
       pointer-events: none;
+      z-index: 1;
     }
+    .gallery-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.85em;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+    .gallery-placeholder i {
+      font-size: 2.4em;
+      opacity: 0.4;
+      transition: opacity 0.3s;
+    }
+    .gallery-item:hover .gallery-placeholder i { opacity: 0.7; }
+    .gallery-item:hover .gallery-placeholder { color: rgba(255,255,255,0.7); }
+    .gallery-item.loaded .gallery-placeholder { display: none; }
 
     /* Drone */
     .drone-grid {
@@ -264,20 +287,20 @@
     <section>
       <h2>3D Gallery</h2>
       <div class="gallery-grid">
-        <div class="gallery-item">
-          <iframe src="https://lumalabs.ai/embed/e0787f28-be64-4060-99f5-ede64da950b1?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false" loading="lazy"></iframe>
+        <div class="gallery-item" data-src="https://lumalabs.ai/embed/e0787f28-be64-4060-99f5-ede64da950b1?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+          <div class="gallery-placeholder"><i class="fas fa-cube"></i><span>Hover to explore</span></div>
           <div class="label">Island</div>
         </div>
-        <div class="gallery-item">
-          <iframe src="https://lumalabs.ai/embed/732f644a-1141-4145-ac61-08680316d126?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false" loading="lazy"></iframe>
+        <div class="gallery-item" data-src="https://lumalabs.ai/embed/732f644a-1141-4145-ac61-08680316d126?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+          <div class="gallery-placeholder"><i class="fas fa-cube"></i><span>Hover to explore</span></div>
           <div class="label">Yakiniku Gotanda</div>
         </div>
-        <div class="gallery-item">
-          <iframe src="https://lumalabs.ai/embed/3fcc98e8-b819-4a2c-89e2-b4b4ea6096da?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false" loading="lazy"></iframe>
+        <div class="gallery-item" data-src="https://lumalabs.ai/embed/3fcc98e8-b819-4a2c-89e2-b4b4ea6096da?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+          <div class="gallery-placeholder"><i class="fas fa-cube"></i><span>Hover to explore</span></div>
           <div class="label">Ramen</div>
         </div>
-        <div class="gallery-item">
-          <iframe src="https://lumalabs.ai/embed/81ea4de2-938b-47ca-9b3b-64a476745ae5?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false" loading="lazy"></iframe>
+        <div class="gallery-item" data-src="https://lumalabs.ai/embed/81ea4de2-938b-47ca-9b3b-64a476745ae5?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false">
+          <div class="gallery-placeholder"><i class="fas fa-cube"></i><span>Hover to explore</span></div>
           <div class="label">Torinokuchi</div>
         </div>
       </div>
@@ -311,5 +334,19 @@
 
   </div>
 
+<script>
+document.querySelectorAll('.gallery-item[data-src]').forEach(item => {
+  function activate() {
+    if (item.classList.contains('loaded')) return;
+    item.classList.add('loaded');
+    const iframe = document.createElement('iframe');
+    iframe.src = item.dataset.src;
+    iframe.allow = 'xr-spatial-tracking';
+    item.insertBefore(iframe, item.querySelector('.label'));
+  }
+  item.addEventListener('mouseenter', activate);
+  item.addEventListener('touchstart', activate, { passive: true });
+});
+</script>
 </body>
 </html>
