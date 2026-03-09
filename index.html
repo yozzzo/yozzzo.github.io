@@ -217,17 +217,16 @@
     .drone-slot {
       aspect-ratio: 16 / 9;
       background: var(--surface);
-      border: 1px dashed #333;
+      border: 1px solid var(--border);
       border-radius: 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: #444;
-      font-size: 0.85em;
-      gap: 8px;
+      overflow: hidden;
     }
-    .drone-slot i { font-size: 1.6em; }
+    .drone-slot video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
     /* Footer */
     footer {
@@ -367,21 +366,21 @@
       <h2>Drone Footage</h2>
       <div class="drone-grid">
         <div class="drone-slot">
-          <i class="fas fa-play-circle"></i>
-          Coming Soon
+          <video autoplay loop muted playsinline>
+            <source src="./assets/drone1.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="drone-slot">
-          <i class="fas fa-play-circle"></i>
-          Coming Soon
+          <video autoplay loop muted playsinline>
+            <source src="./assets/drone2.mp4" type="video/mp4">
+          </video>
         </div>
         <div class="drone-slot">
-          <i class="fas fa-play-circle"></i>
-          Coming Soon
+          <video autoplay loop muted playsinline>
+            <source src="./assets/drone3.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
-      <!-- YouTube動画が準備できたら以下のように差し替え:
-      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
-      -->
     </section>
 
     <footer>
