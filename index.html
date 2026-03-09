@@ -1,133 +1,315 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自己紹介ページ</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #1f1c2c, #928dab);
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            color: #fff;
-            overflow: hidden;
-        }
-        .container {
-            background: rgba(0, 0, 0, 0.7);
-            padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-            text-align: center;
-            max-width: 600px;
-            width: 90%;
-            transition: transform 0.3s ease;
-        }
-        .container:hover {
-            transform: scale(1.05);
-        }
-        .profile-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 20px;
-            border: 3px solid #fff;
-            object-fit: cover;
-        }
-        h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            font-weight: 600;
-        }
-        p {
-            font-size: 1.1em;
-            line-height: 1.7;
-            margin-bottom: 20px;
-            font-weight: 300;
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin-top: 20px;
-        }
-        .social-links a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 1.5em;
-            transition: color 0.3s ease;
-        }
-        .social-links a:hover {
-            color: #00aaff;
-        }
-        .social-links a i {
-            margin-right: 8px;
-        }
-        iframe {
-            margin-top: 20px;
-            width: 100%;
-            height: 400px;
-            border: none;
-            border-radius: 10px;
-        }
-        .icon {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: #fff;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 3em;
-            color: #1f1c2c;
-            margin-bottom: 20px;
-        }
-        @media (max-width: 600px) {
-            .container {
-                padding: 20px;
-            }
-            h1 {
-                font-size: 2em;
-            }
-            p {
-                font-size: 1em;
-            }
-            .social-links a {
-                font-size: 1.2em;
-                margin: 0 10px;
-            }
-            .profile-image {
-                width: 100px;
-                height: 100px;
-            }
-            iframe {
-                height: 300px;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>yozzzo — Full-Stack Engineer</title>
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --bg: #0a0a0a;
+      --surface: #141414;
+      --border: #222;
+      --text: #e0e0e0;
+      --text-dim: #888;
+      --accent: #4f8fff;
+      --accent-dim: rgba(79, 143, 255, 0.1);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; transition: opacity 0.2s; }
+    a:hover { opacity: 0.8; }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero */
+    .hero {
+      padding: 100px 0 60px;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.8em;
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      margin-bottom: 12px;
+    }
+    .hero .subtitle {
+      font-size: 1.15em;
+      color: var(--text-dim);
+      font-weight: 300;
+      margin-bottom: 32px;
+    }
+    .hero .social {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+    .hero .social a {
+      color: var(--text-dim);
+      font-size: 1.3em;
+      transition: color 0.2s;
+    }
+    .hero .social a:hover { color: var(--text); }
+
+    /* Tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .tag {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 6px 14px;
+      font-size: 0.85em;
+      color: var(--text-dim);
+      font-weight: 400;
+    }
+
+    /* Section */
+    section {
+      padding: 60px 0;
+      border-top: 1px solid var(--border);
+    }
+    section h2 {
+      font-size: 1.4em;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      margin-bottom: 32px;
+    }
+
+    /* Projects */
+    .project-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .project {
+      display: flex;
+      align-items: baseline;
+      gap: 16px;
+      padding: 16px 20px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      transition: border-color 0.2s;
+    }
+    .project:hover { border-color: #333; }
+    .project .name {
+      font-weight: 600;
+      font-size: 0.95em;
+      white-space: nowrap;
+    }
+    .project .desc {
+      color: var(--text-dim);
+      font-size: 0.9em;
+      flex: 1;
+    }
+    .project .lang {
+      font-size: 0.75em;
+      color: var(--accent);
+      background: var(--accent-dim);
+      padding: 3px 10px;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+
+    /* 3D Gallery */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      aspect-ratio: 1 / 1.2;
+    }
+    .gallery-item iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    .gallery-item .label {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 8px 12px;
+      background: linear-gradient(transparent, rgba(0,0,0,0.7));
+      font-size: 0.8em;
+      color: rgba(255,255,255,0.8);
+      pointer-events: none;
+    }
+
+    /* Drone */
+    .drone-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+    .drone-slot {
+      aspect-ratio: 16 / 9;
+      background: var(--surface);
+      border: 1px dashed #333;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #444;
+      font-size: 0.85em;
+      gap: 8px;
+    }
+    .drone-slot i { font-size: 1.6em; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 40px 0;
+      text-align: center;
+      color: var(--text-dim);
+      font-size: 0.85em;
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero { padding: 60px 0 40px; }
+      .hero h1 { font-size: 2em; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .drone-grid { grid-template-columns: 1fr; }
+      .project { flex-direction: column; gap: 8px; }
+    }
+  </style>
 </head>
 <body>
 
-<div class="container">
-    <div class="profile-image icon">
-        <i class="fas fa-user"></i>
-    </div>
-    <h1>友田 陽三</h1>
-    <p>友田です！大切な想い出や日常を360度見渡せる3D/4Dで残せるSNS 「TAVIO」を開発中です！いろいろ3D化するのも実験中...興味ある方はお声がけください！</p>
-    <div class="social-links">
-        <a href="https://www.instagram.com/yozo_t_" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
-        <a href="https://www.facebook.com/yozo.tomoda" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a>
-    </div>
-    <iframe src="https://tavio.openheart.jp/scenes/F343E5D4-8F6C-401D-A0B7-CE8FDF893D6A"></iframe>
-</div>
+  <div class="container">
 
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <!-- Hero -->
+    <div class="hero">
+      <h1>yozzzo</h1>
+      <p class="subtitle">Full-Stack Engineer — backend to browser, and sometimes into 3D.</p>
+      <div class="tags">
+        <span class="tag">TypeScript</span>
+        <span class="tag">Python</span>
+        <span class="tag">Go</span>
+        <span class="tag">Rust</span>
+        <span class="tag">GDScript</span>
+        <span class="tag">AWS</span>
+        <span class="tag">Cloudflare</span>
+        <span class="tag">Docker</span>
+        <span class="tag">3D Gaussian Splatting</span>
+      </div>
+      <div class="social">
+        <a href="https://github.com/yozzzo" target="_blank"><i class="fab fa-github"></i></a>
+        <a href="https://www.instagram.com/yozo_t_" target="_blank"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/yozo.tomoda" target="_blank"><i class="fab fa-facebook"></i></a>
+      </div>
+    </div>
+
+    <!-- Projects -->
+    <section>
+      <h2>Projects</h2>
+      <div class="project-list">
+        <a href="https://github.com/yozzzo/gaussian-splatting-3d-viewer" class="project" target="_blank">
+          <span class="name">gaussian-splatting-3d-viewer</span>
+          <span class="desc">3D Gaussian Splatting web app with real-time progress tracking</span>
+          <span class="lang">Python</span>
+        </a>
+        <a href="https://github.com/yozzzo/zendesk-mcp-server" class="project" target="_blank">
+          <span class="name">zendesk-mcp-server</span>
+          <span class="desc">Zendesk MCP server for Claude Desktop / Claude Code</span>
+          <span class="lang">JavaScript</span>
+        </a>
+        <a href="https://github.com/yozzzo/forge-splat-viewer" class="project" target="_blank">
+          <span class="name">forge-splat-viewer</span>
+          <span class="desc">Gaussian Splatting viewer built on forge-gfx</span>
+          <span class="lang">Rust / WebGPU</span>
+        </a>
+        <a href="https://github.com/yozzzo/residue" class="project" target="_blank">
+          <span class="name">residue</span>
+          <span class="desc">Game project in Godot Engine</span>
+          <span class="lang">GDScript</span>
+        </a>
+        <a href="https://github.com/yozzzo/ohaka_web" class="project" target="_blank">
+          <span class="name">ohaka</span>
+          <span class="desc">Full-stack web app (web / api / infra)</span>
+          <span class="lang">TypeScript</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 3D Gallery -->
+    <section>
+      <h2>3D Gallery</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item">
+          <iframe src="https://lumalabs.ai/embed/e0787f28-be64-4060-99f5-ede64da950b1?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false" loading="lazy"></iframe>
+          <div class="label">Island</div>
+        </div>
+        <div class="gallery-item">
+          <iframe src="https://lumalabs.ai/embed/732f644a-1141-4145-ac61-08680316d126?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false" loading="lazy"></iframe>
+          <div class="label">Yakiniku Gotanda</div>
+        </div>
+        <div class="gallery-item">
+          <iframe src="https://lumalabs.ai/embed/3fcc98e8-b819-4a2c-89e2-b4b4ea6096da?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false" loading="lazy"></iframe>
+          <div class="label">Ramen</div>
+        </div>
+        <div class="gallery-item">
+          <iframe src="https://lumalabs.ai/embed/81ea4de2-938b-47ca-9b3b-64a476745ae5?mode=sparkles&background=%23ffffff&color=%23000000&showTitle=true&loadBg=true&logoPosition=bottom-left&infoPosition=bottom-right&showMenu=false" loading="lazy"></iframe>
+          <div class="label">Torinokuchi</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Drone Footage -->
+    <section>
+      <h2>Drone Footage</h2>
+      <div class="drone-grid">
+        <div class="drone-slot">
+          <i class="fas fa-play-circle"></i>
+          Coming Soon
+        </div>
+        <div class="drone-slot">
+          <i class="fas fa-play-circle"></i>
+          Coming Soon
+        </div>
+        <div class="drone-slot">
+          <i class="fas fa-play-circle"></i>
+          Coming Soon
+        </div>
+      </div>
+      <!-- YouTube動画が準備できたら以下のように差し替え:
+      <iframe width="100%" height="100%" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+      -->
+    </section>
+
+    <footer>
+      &copy; 2026 yozzzo
+    </footer>
+
+  </div>
+
 </body>
 </html>
