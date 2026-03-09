@@ -350,14 +350,20 @@
 <script>
 document.querySelectorAll('.gallery-item[data-src]').forEach(item => {
   function activate() {
-    if (item.classList.contains('loaded')) return;
+    if (item.querySelector('iframe')) return;
     item.classList.add('loaded');
     const iframe = document.createElement('iframe');
     iframe.src = item.dataset.src;
     iframe.allow = 'xr-spatial-tracking';
     item.insertBefore(iframe, item.querySelector('.label'));
   }
+  function deactivate() {
+    const iframe = item.querySelector('iframe');
+    if (iframe) iframe.remove();
+    item.classList.remove('loaded');
+  }
   item.addEventListener('mouseenter', activate);
+  item.addEventListener('mouseleave', deactivate);
   item.addEventListener('touchstart', activate, { passive: true });
 });
 </script>
